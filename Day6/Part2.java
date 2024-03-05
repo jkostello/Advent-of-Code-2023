@@ -1,9 +1,9 @@
 package Day6;
-import java.util.*;
-import java.io.IOException;
+import java.util.List;
+import java.util.Arrays;
+import java.util.ArrayList;
 import java.math.BigInteger;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import util.AOC;
 
 public class Part2 {
     public static BigInteger getNumber(String info) {
@@ -36,26 +36,20 @@ public class Part2 {
         return total;
     }
     public static void main(String[] args) {
-        try {
-            // Initialize variables
-            Path input = Paths.get("Day6/Input.txt");
-            Scanner scanner = new Scanner(input);
-            String timeInput = scanner.nextLine();
-            String distanceInput = scanner.nextLine();
-            BigInteger total;
+        // Initialize variables
+        ArrayList<String> lines = AOC.readFile("Day6/Input.txt");
+        String timeInput = lines.get(0);
+        String distanceInput = lines.get(1);
+        BigInteger total;
 
-            // Get time & distance
-            BigInteger time = getNumber(timeInput);
-            BigInteger distance = getNumber(distanceInput);
+        // Get time & distance
+        BigInteger time = getNumber(timeInput);
+        BigInteger distance = getNumber(distanceInput);
 
-            total = calcPossibilities(time, distance);
+        total = calcPossibilities(time, distance);
 
-            System.out.println("Time: " + time);
-            System.out.println("Distance: " + distance);
-            System.out.println("Total: " + total);
-            scanner.close();
-        } catch (IOException e) {
-            System.out.println("IOException");
-        }
+        System.out.println("Time: " + time);
+        System.out.println("Distance: " + distance);
+        System.out.println("Total: " + total);
     }
 }

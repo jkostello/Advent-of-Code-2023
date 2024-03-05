@@ -1,8 +1,8 @@
 package Day6;
-import java.util.*;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import util.AOC;
 
 public class Part1 {
     public static List<Integer> getList(String info) {
@@ -34,25 +34,19 @@ public class Part1 {
         return total;
     }
     public static void main(String[] args) {
-        try {
-            // Initialize variables
-            Path input = Paths.get("Day6/Input.txt");
-            Scanner scanner = new Scanner(input);
-            String time = scanner.nextLine();
-            String distance = scanner.nextLine();
-            int total = 1;
+        // Initialize variables
+        ArrayList<String> lines = AOC.readFile("Day6/Input.txt");
+        String time = lines.get(0);
+        String distance = lines.get(1);
+        int total = 1;
 
-            List<Integer> times = getList(time);
-            List<Integer> distances = getList(distance);
+        List<Integer> times = getList(time);
+        List<Integer> distances = getList(distance);
 
-            for (int i = 0; i < times.size(); i++) {
-                total*= calcPossibilities(times.get(i), distances.get(i));
-            }
-
-            System.out.println("Total: " + total);
-            scanner.close();
-        } catch (IOException e) {
-            System.out.println("Exception: " + e);
+        for (int i = 0; i < times.size(); i++) {
+            total*= calcPossibilities(times.get(i), distances.get(i));
         }
+
+        System.out.println("Total: " + total);
     }
 }
