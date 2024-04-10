@@ -7,6 +7,11 @@ import java.nio.file.Paths;
 import java.io.IOException;
 
 public class AOC {
+
+    /**
+     * @param inputPath Path to input string
+     * @return ArrayList of Strings of all lines in text file
+     */
     public static ArrayList<String> readFile (String inputPath) {
         ArrayList<String> lines = new ArrayList<>();
         Path input = Paths.get(inputPath);
@@ -22,6 +27,11 @@ public class AOC {
         return lines;
     }
 
+    /**
+     * Removes whitespace from array and returns as ArrayList
+     * @param numbers
+     * @return
+     */
     public static ArrayList<String> fixWhiteSpace(String[] numbers) {
         ArrayList<String> fixedNumbers = new ArrayList<String>();
 
