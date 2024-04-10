@@ -1,6 +1,5 @@
 package Day7;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Hand implements Comparable<Hand> {
     public char[] cards;
@@ -10,26 +9,15 @@ public class Hand implements Comparable<Hand> {
     private HashMap<Character, Integer> cardMap = new HashMap<>();
     private char[] cardStrength = {'2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'};
 
-    // Loop through map, check if param in map
-    private boolean loopMap(int numToCheck) {
-        boolean flag = false;
-        for (Map.Entry<Character, Integer> kvp : cardMap.entrySet()) {
-            if (kvp.getValue() == numToCheck) {
-                flag = true;
-            }
-        }
-        return flag;
-    }
-
     private int checkStrength() {
         if(cardMap.size() == 2) { // Check four of a kind or Full house
-            if (loopMap(4)) {
+            if (cardMap.containsValue(4)) {
                 return 6; // Four of a kind
             } else {
                 return 5; // Full house
             }
         } else { // Check Three of a kind or Two pair
-            if (loopMap(3)) {
+            if (cardMap.containsValue(3)) {
                 return 4; // Three of a kind
             } else {
                 return 3; // Two pair
